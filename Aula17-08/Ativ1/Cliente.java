@@ -7,5 +7,4 @@ public class Cliente {
         this.email = email;
     }
 
-    
 }
