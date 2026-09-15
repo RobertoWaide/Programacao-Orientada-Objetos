@@ -1,31 +1,37 @@
 public class Principal {
 
     public static void main(String[] args) {
-        Titular titular1 = new Titular("Julia","1500",null);
-        ContaBancaria c1 = new ContaBancaria(titular1,500);
+        Banco banco = new Banco();
 
+        Titular titular1 = new Titular("Julia", "1500", null);
+        Titular titular2 = new Titular("Marcos", "2000", null);
+        Titular titular3 = new Titular("Pedro", "3000", null);
         
-        exibir(c1);
+        banco.abrirConta(titular1, 500);
+        banco.abrirConta(titular2, 1000);
+        banco.abrirConta(titular3, 250);
 
-        c1.depositar(500);
-        c1.depositar(50);
-        c1.aplicarPercentual(130);
-        c1.aplicarPercentual(50);
+        exibir(banco.buscarConta(1));
+
+        banco.depositar(1,500);
+        banco.depositar(1,50);
+        banco.aplicarPercentual(1,130);
+        banco.aplicarPercentual(1,50);
         
-        exibir(c1);
+        exibir(banco.buscarConta(1));
         
-        c1.sacar(750);
-        c1.sacar(450);
-        c1.aplicarPercentual(-10);
-        c1.aplicarPercentual(30);
+        banco.sacar(1,750);
+        banco.sacar(1,450);
+        banco.aplicarPercentual(1,-10);
+        banco.aplicarPercentual(1,30);
 
         titular1.setTitular("Marcos");
 
-        exibir(c1);
+        exibir(banco.buscarConta(2));
 
-        c1.exibirExtrato();
-        c1.totalDepositado();
-        c1.maiorSaque();
+        banco.exibirExtrato(1);
+        banco.totalDepositado(1);
+        banco.maiorSaque(1);
 
     }
 
