@@ -20,6 +20,4 @@ public class Titular {
     public String getTitular() {
         return this.nome;
     }
-
-
 }
