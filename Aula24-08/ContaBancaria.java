@@ -5,11 +5,13 @@ public class ContaBancaria {
 
     private double saldo;
     private int operacoes;
+    private int numeroConta;
 
     private ArrayList<Double> movimentacoes;
 
 
-    ContaBancaria(Titular nome, double saldoInicial) {
+    ContaBancaria(int numeroConta, Titular nome, double saldoInicial) {
+        this.numeroConta = numeroConta;
         this.titular = nome;
         this.saldo = saldoInicial;
         this.operacoes = 0;
@@ -52,15 +54,18 @@ public class ContaBancaria {
 
     public double getSaldo() {
         return this.saldo;
-    }   
+    }
     
     public int getOperacoes() {
         return this.operacoes;
-
     }
 
     public String getNome() {
         return titular.getTitular();
+    }
+
+    public int getNumeroConta() {
+        return this.numeroConta;
     }
 
     public void exibirExtrato() {
