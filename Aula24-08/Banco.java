@@ -4,7 +4,6 @@ public class Banco {
     private int proximoNumero = 1;
     private ArrayList<ContaBancaria> contas;
 
-
     Banco() {
         this.contas = new ArrayList<>();
         this.proximoNumero = 1;
@@ -19,29 +18,43 @@ public class Banco {
     }
 
     public ContaBancaria buscarConta(int numero) {
-
         for (ContaBancaria conta : contas) {
-
             if (conta.getNumeroConta() == numero) {
-                return conta;}}
-        return null;
-    }
+                return conta;}
+        }
+        System.out.println("Conta não encontrada!");
+        return null;}
+
     
     public void depositar(int numeroConta, double valor) {
         ContaBancaria conta = buscarConta(numeroConta);
         if (conta != null) {
-            conta.depositar(valor);
-        } else {
-            System.out.println("Conta não encontrada!");
-        }
+            conta.depositar(valor);}
     }
-    public void sacar(int numeroConta, double valor) {
+        public void sacar(int numeroConta, double valor) {
         ContaBancaria conta = buscarConta(numeroConta);
         if (conta != null) {
-            conta.sacar(valor);
-        } else {
-            System.out.println("Conta não encontrada!");
-        }
+            conta.sacar(valor);}
     }
-
+        public void aplicarPercentual(int numeroConta, double valor) {
+        ContaBancaria conta = buscarConta(numeroConta);
+        if (conta != null) {
+            conta.aplicarPercentual(valor);}
+    }
+    public void exibirExtrato(int numeroConta) {
+        ContaBancaria conta = buscarConta(numeroConta);
+        if (conta != null) {
+            conta.exibirExtrato();}
+    }
+    public void totalDepositado(int numeroConta) {
+        ContaBancaria conta = buscarConta(numeroConta);
+        if (conta != null) {
+            conta.totalDepositado();}
+    }
+    public void maiorSaque(int numeroConta) {
+        ContaBancaria conta = buscarConta(numeroConta);
+        if (conta != null) {
+            conta.maiorSaque();}
+    }
+    
 }
