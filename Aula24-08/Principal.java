@@ -1,4 +1,69 @@
+import java.util.Scanner;
+
 public class Principal {
+
+    public static void main(String[] args) {
+        Banco banco = new Banco();
+        Scanner scanner = new Scanner(System.in);
+        while (true) {
+
+            System.out.println("""
+                1 - Criar conta
+                2 - Sacar
+                3 - Depositar
+                4 - Transferir
+                5 - Consultar saldo
+                6 - Ver extrato
+                7 - Aplicar rendimento
+                8 - Listar contas
+                0 - Sair
+            """);
+            int opc = scanner.nextInt();
+            scanner.nextLine();
+            
+            if (opc == 1) {
+                System.out.println("\nInforme o nome seu nome:");
+                String nome = scanner.nextLine();
+                System.out.println("\nInforme seu cpf:");
+                String cpf = scanner.nextLine();
+                
+                Titular titular = new Titular(nome,cpf,null);
+                banco.abrirConta(titular, 0);
+            }
+            else if (opc == 2) {
+                banco.sacar(scanner);
+            }
+            else if (opc == 3) {
+                banco.depositar(scanner);
+            }
+            else if (opc == 4) {
+                banco.transferir(scanner);
+            }
+            else if (opc == 5) {
+                banco.consultarSaldo(scanner);
+            }
+            else if (opc == 6) {
+                banco.exibirExtrato(scanner);
+            }
+            else if (opc == 7) {
+                banco.aplicarPercentual(scanner);
+            }
+            else if (opc == 8) {
+                banco.listarContas();
+            }
+            else if (opc == 0){
+                break;
+            }
+            else {
+                System.out.println("Opção invalida!");
+            }
+        }
+        scanner.close();
+        
+
+    }
+
+}public class Principal {
 
     public static void main(String[] args) {
         Banco banco = new Banco();
