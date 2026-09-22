@@ -30,15 +30,17 @@ public class ContaBancaria {
             System.out.println("Deposite um saldo positivo!");
         }
     }
-    void sacar(double valor) {
+    public boolean sacar(double valor) {
         valor += 0.50;
         if (valor > 0 && saldo >= valor) {
             saldo -= valor;
             System.out.println("\nSaque concluido!");
             movimentacoes.add((-valor));
             operacoes ++;
+            return true;
         } else {
             System.out.println("\nSaque Invalido - Valor Exedido");
+            return false;
         }
     }
 
